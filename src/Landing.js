@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => (
   <div className="landing">
@@ -6,9 +7,9 @@ const Landing = () => (
       svideo
     </h1>
     <input type="text" placeholder="Search" />
-    <a href="/">
-      browse all
-    </a>
+    <Link to="/search">
+      browse
+    </Link>
   </div>
 );
 
