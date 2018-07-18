@@ -17,7 +17,7 @@ const Search = () => (
   <div className="search">
     {preload.shows.map(show => (
       <div className="show-card">
-        <img src={`${show.imageUrl}`} alt={`${show.title} Show Poster`} />
+        <img src={`/public/img/posters/${show.poster}`} alt={`${show.title} Show Poster`} />
       </div>
     ))}
   </div>
