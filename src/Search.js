@@ -1,10 +1,13 @@
 import React from 'react';
+import preload from './data';
 
 const Search = () => (
-  <div>
-    <h1>
-      hello
-    </h1>
+  <div className="search">
+    <pre>
+      <code>
+        {JSON.stringify(preload, null, 4)}
+      </code>
+    </pre>
   </div>
 );
 
