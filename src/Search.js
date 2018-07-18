@@ -16,7 +16,7 @@ import ShowCard from './ShowCard';
 // Transform payload (array) to array of React components
 const Search = () => (
   <div className="search">
-    {preload.shows.map(show => <ShowCard show={show} />)}
+    {preload.shows.map(show => <ShowCard key={show.title} show={show} />)}
   </div>
 );
 
