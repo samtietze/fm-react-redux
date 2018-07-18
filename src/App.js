@@ -1,18 +1,14 @@
 import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
+import Landing from './Landing';
 import './App.css';
 
 const App = () => (
-  <div className="app">
-    <div className="landing">
-      <h1>
-        svideo
-      </h1>
-      <input type="text" placeholder="Search" />
-      <a href="/">
-        browse all
-      </a>
+  <HashRouter>
+    <div className="app">
+      <Route exact path="/" component={Landing} />
     </div>
-  </div>
+  </HashRouter>
 );
 
 export default App;
