@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import preload from './data';
 import ShowCard from './ShowCard';
 
@@ -14,10 +14,34 @@ import ShowCard from './ShowCard';
 // );
 
 // Transform payload (array) to array of React components
-const Search = () => (
-  <div className="search">
-    {preload.shows.map(show => <ShowCard key={show.imdbID} show={show} />)}
-  </div>
-);
+class Search extends Component {
+  state = {
+    searchTerm: '',
+  };
+
+  handleSearchTermChange = (event) => {
+    this.setState({ searchTerm: event.target.value });
+  }
+
+  render() {
+    // const { searchText } = this.state;
+    return (
+      <div className="search">
+        <header>
+          <h1>
+            svideo
+          </h1>
+          <input
+            onChange={this.handleSearchTermChange}
+            value={this.state.searchTerm}
+            type="text"
+            placeholder="Search"
+          />
+        </header>
+        {preload.shows.map(show => <ShowCard key={show.imdbID} show={show} />)}
+      </div>
+    );
+  }
+}
 
 export default Search;
