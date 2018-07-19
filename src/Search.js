@@ -15,17 +15,11 @@ import ShowCard from './ShowCard';
 
 // Transform payload (array) to array of React components
 class Search extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    searchTerm: '',
+  };
 
-    this.state = {
-      searchTerm: 'this is a debug statement',
-    };
-
-    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-  }
-
-  handleSearchTermChange(event) {
+  handleSearchTermChange = (event) => {
     this.setState({ searchTerm: event.target.value });
   }
 
