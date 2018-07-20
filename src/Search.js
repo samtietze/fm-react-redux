@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import preload from './data';
 import ShowCard from './ShowCard';
@@ -12,15 +14,19 @@ import ShowCard from './ShowCard';
 //     </pre>
 //   </div>
 // );
+type Props = {}
+type State = {
+  searchTerm: string
+}
 
 // Transform payload (array) to array of React components
-class Search extends Component {
+class Search extends Component<Props, State> {
   state = {
     searchTerm: '',
   };
 
-  handleSearchTermChange = (event) => {
-    this.setState({ searchTerm: event.target.value });
+  handleSearchTermChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    this.setState({ searchTerm: event.currentTarget.value });
   }
 
   render() {
