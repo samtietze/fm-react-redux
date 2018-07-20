@@ -1,5 +1,5 @@
 {
-	"extends": ["airbnb"],
+	"extends": ["airbnb", "plugin:flowtype/recommended"],
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"sourceType": "module",
@@ -9,7 +9,7 @@
 			"jsx": true
 		}
 	},
-	"plugins": ["react", "jsx-a11y", "import"],
+	"plugins": ["react", "jsx-a11y", "import", "flowtype"],
 	"rules": {
 		"react/jsx-uses-react": 2,
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
