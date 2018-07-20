@@ -14,6 +14,8 @@ import ShowCard from './ShowCard';
 //     </pre>
 //   </div>
 // );
+// Typing for Flow; Search class needed this or it threw an error regarding searchTerm.
+// Not sure why it's typed differently from ShowCard's typing. Because of Class?
 type Props = {}
 type State = {
   searchTerm: string
