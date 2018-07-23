@@ -39,7 +39,11 @@ class Search extends Component<Props, State> {
     // const { searchText } = this.state;
     return (
       <div className="search">
-        <Header searchTerm={this.state.searchTerm} showSearch handleSearchTermChange={this.handleSearchTermChange} />
+        <Header
+          searchTerm={this.state.searchTerm}
+          showSearch
+          handleSearchTermChange={this.handleSearchTermChange}
+        />
         {this.props.shows
           .filter(
             show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0,
