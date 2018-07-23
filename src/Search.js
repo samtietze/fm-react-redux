@@ -1,8 +1,8 @@
 // @flow
 
 import React, { Component } from 'react';
-import preload from './data';
 import ShowCard from './ShowCard';
+// import preload from './data';
 
 // Easy way to dump a bunch of data to the dom to test
 // const Search = () => (
@@ -14,7 +14,12 @@ import ShowCard from './ShowCard';
 //     </pre>
 //   </div>
 // );
-type Props = {}
+// Typing for Flow; Search class needed this or it threw an error regarding searchTerm.
+// Not sure why it's typed differently from ShowCard's typing. Because of Class?
+
+type Props = {
+  shows: Array<Show>
+}
 type State = {
   searchTerm: string
 }
@@ -44,7 +49,7 @@ class Search extends Component<Props, State> {
             placeholder="Search"
           />
         </header>
-        {preload.shows
+        {this.props.shows
           .filter(
             show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0,
           )
