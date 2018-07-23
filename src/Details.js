@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import Header from './Header';
 
 // This is an easy way to check out the props at this component's branch:
 //  <h1>
@@ -13,11 +14,7 @@ const Details = (props: { show: Show }) => {
   } = props.show;
   return (
     <div className="details">
-      <header>
-        <h1>
-svideo
-        </h1>
-      </header>
+      <Header />
       <section>
         <h1>
           {title}
@@ -32,8 +29,7 @@ svideo
       </section>
       <div>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${trailer}
-          ?rel=0&amp;controls=0&amp;showinfo=0`}
+          src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;controls=0&amp;showinfo=0`}
           frameBorder="0"
           allowFullScreen
           title={`Trailer for ${title}`}
