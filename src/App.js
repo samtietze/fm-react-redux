@@ -22,7 +22,8 @@ const App = () => (
     <div className="app">
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/search" component={Search} />
+        {/* No need to type these props because they aren't being read from, just passed in. */}
+        <Route path="/search" component={props => <Search shows={preload.shows} {...props} />} />
         <Route
           path="/details/:id"
           component={(props: { match: Match }) => {
