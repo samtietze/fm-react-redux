@@ -9,6 +9,13 @@ import Details from './Details';
 import preload from './data.json';
 import './App.css';
 
+// Perf doesn't work with React 16 yet. It provides a shouldComponentUpdate method that will prevent
+// a component that you know doesn't need to re-render from inadvertently re-rendering. Using it
+// will help identify where the performance wasting is occurring. Do not prematurely optimize.
+// import Perf from 'react-addons-perf';
+// window.Perf = Perf;
+// Perf.start();
+
 const PathNotFound = () => (
   <div>
     <h1>
