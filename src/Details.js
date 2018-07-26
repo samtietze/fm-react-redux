@@ -24,7 +24,8 @@ class Details extends Component<Props, State> {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:3000/${this.props.show.imdbID}`)
+    axios
+      .get(`http://localhost:3000/${this.props.show.imdbID}`)
       .then((response: { data: { rating: string}}) => {
         this.setState({ apiData: response.data });
       });
