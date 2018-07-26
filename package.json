@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"axios": "~0.18.0",
 		"babel-preset-env": "^1.7.0",
 		"fsevents": "1.2.4",
 		"node-sass": "^4.9.0",
@@ -18,8 +19,7 @@
 		"redux-connect": "^7.0.0",
 		"redux-devtools-extension": "^2.13.5",
 		"redux-thunk": "^2.3.0",
-		"styled-components": "^3.3.3",
-		"axios": "~0.18.0"
+		"styled-components": "^3.3.3"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -38,11 +38,11 @@
 		"enzyme-adapter-react-16": "^1.1.1",
 		"enzyme-to-json": "~3.3.4",
 		"eslint-config-airbnb": "^17.0.0",
+		"eslint-plugin-flow": "2.29.1",
+		"eslint-plugin-flowtype": "2.33.0",
 		"eslint-plugin-import": "^2.13.0",
 		"eslint-plugin-jsx-a11y": "^6.1.0",
 		"eslint-plugin-react": "^7.10.0",
-		"eslint-plugin-flow": "2.29.1",
-    "eslint-plugin-flowtype": "2.33.0",
 		"flow-bin": "^0.76.0",
 		"jest-enzyme": "~6.0.2",
 		"react-test-renderer": "16.4.1"
