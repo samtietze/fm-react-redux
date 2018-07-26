@@ -23,6 +23,9 @@ class Details extends Component<Props, State> {
     apiData: { rating: '' },
   };
 
+  // axios does a lot more for ajax request than fetch;
+  // doesn't need to deal with a response code, just grabs the response object
+  // in whatever format is expected
   componentDidMount() {
     axios
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
