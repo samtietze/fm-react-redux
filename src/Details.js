@@ -1,22 +1,53 @@
 // @flow
 
 import React, { Component } from 'react';
+import axios from 'axios';
 import Header from './Header';
+import Spinner from './Spinner';
 
 // This is an easy way to check out the props at this component's branch:
 //  <h1>
 //    <pre><code>{JSON.stringify(props, null, 4)}</code></pre>
 //  </h1>
-
-class Details extends Component {
-  props: {
-    show: Show
+type Props = {
+  show: Show
+}
+type State = {
+  apiData: {
+    rating: string,
   }
+}
+
+class Details extends Component<Props, State> {
+  state = {
+    apiData: { rating: '' },
+  };
+
+  componentDidMount() {
+    axios.get(`http://localhost:3000/${this.props.show.imdbID}`)
+      .then((response: { data: { rating: string}}) => {
+        this.setState({ apiData: response.data });
+      });
+  }
+
+  // props: {
+  //   show: Show
+  // }
 
   render() {
     const {
       title, description, year, poster, trailer,
     } = this.props.show;
+    let ratingComponent;
+    if (this.state.apiData.rating) {
+      ratingComponent = (
+        <h3>
+          {this.state.apiData.rating}
+        </h3>
+      );
+    } else {
+      ratingComponent = <Spinner />;
+    }
     return (
       <div className="details">
         <Header />
@@ -27,6 +58,7 @@ class Details extends Component {
           <h2>
             {`(${year})`}
           </h2>
+          {ratingComponent}
           <img src={`/posters/${poster}`} alt={`Poster for ${title}`} />
           <p>
             {description}
