@@ -24,10 +24,6 @@ const Image = styled.img`
   margin-right: 10px;
 `;
 
-const Pgraph = styled.p`
-  // font-size: 1vw;
-`;
-
 const ShowCard = (props: {
   show: {
     poster: string,
@@ -47,9 +43,9 @@ const ShowCard = (props: {
         <h4>
           {`(${show.year})`}
         </h4>
-        <Pgraph>
+        <p>
           {show.description}
-        </Pgraph>
+        </p>
       </div>
     </Wrapper>
   );
