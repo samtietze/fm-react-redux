@@ -7,7 +7,7 @@ import { MemoryRouter } from 'react-router-dom';
 import store from '../store';
 import { setSearchTerm } from '../actionCreators';
 import preload from '../data.json';
-import Search, { Unwrapped as UnwrappedSearch } from '../Search';
+import { Unwrapped as UnwrappedSearch } from '../Search';
 import ShowCard from '../ShowCard';
 
 // This will also inadvertently test children. Is not ideal.
