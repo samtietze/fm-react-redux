@@ -16,6 +16,7 @@ type Props = {
   rating: string,
   getAPIData: Function
 }
+
 // type State = {
 //   apiData: {
 //     rating: string,

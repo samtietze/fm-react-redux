@@ -13,7 +13,7 @@ export function addAPIData(apiData: Show) {
   return { type: ADD_API_DATA, payload: apiData };
 }
 
-// Thunk is a function that returns a function; it creates a
+// A thunk is a function that returns a function; it creates a
 // deferred action for Redux to work async
 export function getAPIDetails(imdbID: string) {
   return (dispatch: Function) => {
@@ -22,7 +22,7 @@ export function getAPIDetails(imdbID: string) {
       .then((response) => {
         dispatch(addAPIData(response.data));
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         console.error('axios error', error);
       });
   };
