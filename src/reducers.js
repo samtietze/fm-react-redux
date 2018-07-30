@@ -1,6 +1,15 @@
+import { SET_SEARCH_TERM } from './actions';
+
 const DEFAULT_STATE = {
   searchTerm: '',
 };
+
+// Use Object.assign() for a couple of reasons: do. not. modify. the original state object.
+// Object.assign() will create a new object with the state and action. All previous state
+// gets merged into the new object, and the action will overwrite whatever state is in there.
+const setSearchTerm = (state, action) => {
+  return Object.assign({}, state, { searchTerm: action.payload });
+}
 
 // This is a 'flux standard action':
 // {
@@ -15,6 +24,8 @@ const DEFAULT_STATE = {
 // without Flow:
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
+    case SET_SEARCH_TERM:
+      return setSearchTerm((state, action);
     default:
       return state;
   }
