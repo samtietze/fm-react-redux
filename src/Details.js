@@ -1,6 +1,8 @@
 // @flow
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getAPIDetails } from './actionCreators';
 // import axios from 'axios';
 import Header from './Header';
 import Spinner from './Spinner';
@@ -10,19 +12,17 @@ import Spinner from './Spinner';
 //    <pre><code>{JSON.stringify(props, null, 4)}</code></pre>
 //  </h1>
 type Props = {
-  show: Show
+  show: Show,
+  rating: string,
+  getAPIData: Function
 }
-type State = {
-  apiData: {
-    rating: string,
-  }
-}
+// type State = {
+//   apiData: {
+//     rating: string,
+//   }
+// }
 
-class Details extends Component<Props, State> {
-  state = {
-    apiData: { rating: '' },
-  };
-
+class Details extends Component<Props> {
   // Redux update: the ajax call made by axios needs to move to Redux
   // actionCreators since its primary function is state and dispatch.
   // axios does a lot more for ajax request than fetch;
@@ -36,19 +36,21 @@ class Details extends Component<Props, State> {
   //     });
   // }
 
-  // props: {
-  //   show: Show
-  // }
+  componentDidMount() {
+    if (!this.props.rating) {
+      this.props.getAPIData();
+    }
+  }
 
   render() {
     const {
       title, description, year, poster, trailer,
     } = this.props.show;
     let ratingComponent;
-    if (this.state.apiData.rating) {
+    if (this.props.rating) {
       ratingComponent = (
         <h3>
-          {this.state.apiData.rating}
+          {this.props.rating}
         </h3>
       );
     } else {
@@ -83,4 +85,17 @@ class Details extends Component<Props, State> {
   }
 }
 
-export default Details;
+const mapStateToProps = (state, ownProps) => {
+  const apiData = state.apiData[ownProps.show.imdbID] ? state.apiData[ownProps.show.imdbID] : {};
+  return {
+    rating: apiData.rating,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Function, ownProps) => ({
+  getAPIData() {
+    dispatch(getAPIDetails(ownProps.show.imdbID));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);
