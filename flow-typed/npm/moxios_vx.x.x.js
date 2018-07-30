@@ -37,4 +37,3 @@ declare module 'moxios/dist/moxios.js' {
 declare module 'moxios/dist/moxios.min.js' {
   declare module.exports: $Exports<'moxios/dist/moxios.min'>;
 }
-ghjk
