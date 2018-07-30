@@ -1,3 +1,6 @@
+// @flow
+
+import { combineReducers } from 'redux';
 import { SET_SEARCH_TERM } from './actions';
 
 const DEFAULT_STATE = {
@@ -19,6 +22,8 @@ const setSearchTerm = (state, action) => Object.assign({}, state, { searchTerm: 
 //   }
 // }
 
+// The rootReducer can be created by combineReducers function from Redux
+// to create the switch case for all of your actions
 // without Flow:
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
