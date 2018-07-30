@@ -6,11 +6,12 @@ export type Show = {
   year: string,
   imdbID: string,
   trailer: string,
-  poster: string
+  poster: string,
+  rating?: string
 }
 
 // an enumerated type:
-declare type ActionType = 'SET_SEARCH_TERM'
+declare type ActionType = 'SET_SEARCH_TERM' | 'ADD_API_DATA';
 
 // Pipes are used for engineered types
 declare type ActionT<A: ActionType, P> = {|
@@ -18,4 +19,4 @@ declare type ActionT<A: ActionType, P> = {|
   payload: P
 |}
 
-export type Action = ActionT<'SET_SEARCH_TERM', string>;
+export type Action = ActionT<'SET_SEARCH_TERM', string> | ActionT<'ADD_API_DATA', Show>;

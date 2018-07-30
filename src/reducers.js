@@ -1,7 +1,7 @@
 // @flow
 
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM } from './actions';
+import { SET_SEARCH_TERM, ADD_API_DATA } from './actions';
 
 // Use Object.assign() for a couple of reasons: do. not. modify. the original state object.
 // Object.assign() will create a new object with the state and action. All previous state
@@ -9,6 +9,13 @@ import { SET_SEARCH_TERM } from './actions';
 const searchTerm = (state = '', action: Action) => {
   if (action.type === SET_SEARCH_TERM) {
     return action.payload;
+  }
+  return state;
+};
+
+const apiData = (state = {}, action: Action) => {
+  if (action.type === ADD_API_DATA) {
+    return Object.assign({}, state, { [action.payload.imdbID]: action.payload });
   }
   return state;
 };
@@ -27,7 +34,7 @@ const searchTerm = (state = '', action: Action) => {
 // to create the switch case for all of your actions. This object's
 // searchTerm: searchTerm can be written as just 'searchTerm'; it's
 // syntactic sugar from ES6. Not sure why it didn't work in JSX tags.
-const rootReducer = combineReducers({ searchTerm });
+const rootReducer = combineReducers({ searchTerm, apiData });
 // without Flow:
 // const rootReducer = (state = DEFAULT_STATE, action) => {
 //   switch (action.type) {
