@@ -23,16 +23,18 @@ class Details extends Component<Props, State> {
     apiData: { rating: '' },
   };
 
+  // Redux update: the ajax call made by axios needs to move to Redux
+  // actionCreators since its primary function is state and dispatch.
   // axios does a lot more for ajax request than fetch;
   // doesn't need to deal with a response code, just grabs the response object
   // in whatever format is expected
-  componentDidMount() {
-    axios
-      .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then((response: { data: { rating: string}}) => {
-        this.setState({ apiData: response.data });
-      });
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get(`http://localhost:3000/${this.props.show.imdbID}`)
+  //     .then((response: { data: { rating: string}}) => {
+  //       this.setState({ apiData: response.data });
+  //     });
+  // }
 
   // props: {
   //   show: Show
