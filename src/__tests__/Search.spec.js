@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { shallow, render } from 'enzyme';
 import { Provider } from 'react-redux';
@@ -26,7 +28,7 @@ it('Search should render correct amount of shows', () => {
 });
 
 it('Search should render correct amount of shows based on search term', () => {
-  // Redux causes React components to be a bit harder to test:
+  // Redux causes React components to be a bit harder to test. Render method is a bit expensive too.
   const searchWord = 'black';
   store.dispatch(setSearchTerm(searchWord));
   const component = render(
