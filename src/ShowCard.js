@@ -34,7 +34,7 @@ const ShowCard = (props: {
   }}) => {
   const { show } = props;
   return (
-    <Wrapper to={`/details/${show.imdbID}`}>
+    <Wrapper className="show-card" to={`/details/${show.imdbID}`}>
       <Image src={`/posters/${show.poster}`} alt={`${show.title} Show Poster`} />
       <div>
         <h3>
