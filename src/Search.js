@@ -40,6 +40,8 @@ const Search = (props: {
 
   // render() {
   // const { searchText } = this.state;
+
+  // Search now just delegates all changes in searchTerm to the Header
   <div className="search">
     <Header showSearch />
     <div>
